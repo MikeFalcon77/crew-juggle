@@ -1,0 +1,57 @@
+{{- if and .Values.postgres.enabled (not .Values.databaseUrl) }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "crew-juggle.name" . }}-db
+  labels: {{- include "crew-juggle.labels" . | nindent 4 }}
+spec:
+  selector:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/component: db
+  ports:
+    - port: 5432
+      targetPort: 5432
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "crew-juggle.name" . }}-db
+  labels: {{- include "crew-juggle.labels" . | nindent 4 }}
+spec:
+  serviceName: {{ include "crew-juggle.name" . }}-db
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: {{ .Release.Name }}
+      app.kubernetes.io/component: db
+  template:
+    metadata:
+      labels:
+        {{- include "crew-juggle.labels" . | nindent 8 }}
+        app.kubernetes.io/component: db
+    spec:
+      containers:
+        - name: postgres
+          image: {{ .Values.postgres.image }}
+          env:
+            - { name: POSTGRES_USER, value: juggle }
+            - { name: POSTGRES_PASSWORD, value: {{ .Values.postgres.password | quote }} }
+            - { name: POSTGRES_DB, value: juggle }
+            - { name: PGDATA, value: /var/lib/postgresql/data/pgdata }
+          ports:
+            - containerPort: 5432
+          readinessProbe:
+            exec: { command: ["pg_isready", "-U", "juggle"] }
+            periodSeconds: 3
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: {{ .Values.postgres.storage }}
+{{- end }}

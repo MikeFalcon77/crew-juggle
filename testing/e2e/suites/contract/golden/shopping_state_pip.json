@@ -1,0 +1,125 @@
+{
+  "body": {
+    "aiConfigured": true,
+    "catalog": [
+      {
+        "aliases": [],
+        "category": "pets",
+        "categoryOverride": false,
+        "classified": true,
+        "id": "<uuid4>",
+        "name": "Cat food",
+        "revision": 1,
+        "subcategory": "Pet food",
+        "variant": ""
+      },
+      {
+        "aliases": [],
+        "category": "pets",
+        "categoryOverride": false,
+        "classified": true,
+        "id": "<uuid4>",
+        "name": "Cat litter",
+        "revision": 1,
+        "subcategory": "Pet supplies",
+        "variant": ""
+      },
+      {
+        "aliases": [],
+        "category": "home",
+        "categoryOverride": false,
+        "classified": true,
+        "id": "<uuid4>",
+        "name": "Dish soap",
+        "revision": 1,
+        "subcategory": "Cleaning",
+        "variant": ""
+      },
+      {
+        "aliases": [],
+        "category": "food",
+        "categoryOverride": false,
+        "classified": true,
+        "id": "<uuid4>",
+        "name": "Oat milk",
+        "revision": 1,
+        "subcategory": "Drinks",
+        "variant": ""
+      },
+      {
+        "aliases": [],
+        "category": "food",
+        "categoryOverride": false,
+        "classified": true,
+        "id": "<uuid4>",
+        "name": "Instant noodles",
+        "revision": 1,
+        "subcategory": "Snacks",
+        "variant": ""
+      }
+    ],
+    "imports": [],
+    "list": [
+      {
+        "author": "Pip",
+        "category": "pets",
+        "done": false,
+        "id": "e756a230-42a6-53fc-b913-ff7582b76a51",
+        "name": "Cat food",
+        "productId": "<uuid4>",
+        "quantity": "6 pouches",
+        "revision": 1
+      },
+      {
+        "author": "Pip",
+        "category": "pets",
+        "done": false,
+        "id": "134425f0-4dba-5083-bbd0-967f6821b49d",
+        "name": "Cat litter",
+        "productId": "<uuid4>",
+        "quantity": "1 bag",
+        "revision": 1
+      },
+      {
+        "author": "Pip",
+        "category": "home",
+        "done": false,
+        "id": "5663bcde-06a3-576f-8e89-e2c3614e8fa6",
+        "name": "Dish soap",
+        "productId": "<uuid4>",
+        "quantity": "1",
+        "revision": 1
+      },
+      {
+        "author": "Pip",
+        "category": "food",
+        "done": false,
+        "id": "86a66241-53b7-5602-9f26-ab4ab6801b7c",
+        "name": "Oat milk",
+        "productId": "<uuid4>",
+        "quantity": "2",
+        "revision": 1
+      },
+      {
+        "author": "Pip",
+        "category": "food",
+        "done": false,
+        "id": "d0492f74-93c1-5c38-873f-3abd6ea13a8f",
+        "name": "Instant noodles",
+        "productId": "<uuid4>",
+        "quantity": "5",
+        "revision": 1
+      }
+    ],
+    "purchases": [],
+    "receipts": [],
+    "revision": 2,
+    "rules": [],
+    "today": "<day+0>"
+  },
+  "headers": {
+    "cache-control": "no-store",
+    "content-type": "application/json"
+  },
+  "status": 200
+}

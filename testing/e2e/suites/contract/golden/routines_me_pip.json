@@ -1,0 +1,13 @@
+{
+  "body": {
+    "timezone": "Europe/Berlin",
+    "today": "<day+0>",
+    "uid": "demo-pip",
+    "vapid_public_key": "<vapid-key>"
+  },
+  "headers": {
+    "cache-control": null,
+    "content-type": "application/json"
+  },
+  "status": 200
+}

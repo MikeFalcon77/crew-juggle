@@ -1,0 +1,7 @@
+apiVersion: v2
+name: crew-juggle
+description: Shared routines and shopping for your crew, built on Constructor Gears.
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+home: https://github.com/MikeFalcon77/crew-juggle

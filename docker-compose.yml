@@ -1,0 +1,52 @@
+# Local demo: `docker compose up`, then open http://localhost:8080
+# Pick a character (Pip, Zed, Nova or Ike). Demo data resets on restart.
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: juggle
+      POSTGRES_PASSWORD: juggle
+      POSTGRES_DB: juggle
+    volumes:
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U juggle"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  app:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+    image: crew-juggle:local
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://juggle:juggle@db:5432/juggle
+      JUGGLE_DEMO_TIMEZONE: ${JUGGLE_DEMO_TIMEZONE:-Europe/Berlin}
+      # Optional: real receipt scanning instead of the demo scanner.
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-}
+    # The image starts with config/production.yaml; the local demo uses its sandbox twin.
+    command: ["--config", "/app/config/demo.yaml"]
+    expose:
+      - "8080"
+
+  # The web app; it passes API calls to app.
+  web:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile
+      target: web
+    image: crew-juggle-web:local
+    depends_on:
+      - app
+    environment:
+      API_UPSTREAM: app:8080
+    ports:
+      - "8080:8080"
+
+volumes:
+  db:

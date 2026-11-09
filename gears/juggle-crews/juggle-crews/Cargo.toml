@@ -1,0 +1,40 @@
+[package]
+name = "juggle-crews"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+description = "Crews gear: sign-in, crews, memberships and invite codes"
+
+[features]
+# PostgreSQL tests in tests/ (testcontainers); run them with `make test-integration`.
+integration = []
+
+[dependencies]
+juggle-crews-sdk.workspace = true
+toolkit.workspace = true
+toolkit-macros.workspace = true
+toolkit-security.workspace = true
+toolkit-canonical-errors.workspace = true
+toolkit-db.workspace = true
+toolkit-db-macros.workspace = true
+sea-orm.workspace = true
+sea-orm-migration.workspace = true
+anyhow.workspace = true
+async-trait.workspace = true
+inventory.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+chrono-tz.workspace = true
+axum.workspace = true
+utoipa.workspace = true
+thiserror.workspace = true
+aws-lc-rs.workspace = true
+
+[dev-dependencies]
+tokio.workspace = true
+juggle-testing.workspace = true
+url = "2"

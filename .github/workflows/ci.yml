@@ -1,0 +1,167 @@
+name: CI
+
+# Every job runs a make target from crew-juggle.mk or .gears-dna/gears.mk,
+# so `make ci` on a laptop checks the same things.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  CARGO_INCREMENTAL: "0"
+  # nextest comes from install-action; gears.mk then only checks that it is there.
+  CI_PREINSTALLED_TOOLS: nextest
+  # Keep equal to CARGO_GEARS_VERSION in crew-juggle.mk.
+  CARGO_GEARS_VERSION: 0.0.10
+
+jobs:
+  fmt:
+    name: Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install the pinned Rust toolchain (rust-toolchain.toml)
+        run: rustup show active-toolchain || rustup toolchain install
+      - run: make fmt
+
+  clippy:
+    name: Clippy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # protoc with the well-known types (google/protobuf/*.proto), as in gears-rust.
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: protoc@3.34.1
+      - run: rustup show active-toolchain || rustup toolchain install
+      - uses: Swatinem/rust-cache@v2
+      - run: make clippy
+
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    env:
+      NEXTEST_PROFILE: ci
+      JUNIT_DIR: test-results
+    steps:
+      - uses: actions/checkout@v4
+      # protoc with the well-known types (google/protobuf/*.proto), as in gears-rust.
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: protoc@3.34.1
+      - run: rustup show active-toolchain || rustup toolchain install
+      - uses: Swatinem/rust-cache@v2
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: nextest
+      - run: make test
+      - name: PostgreSQL tests (testcontainers)
+        run: make test-integration
+
+  deny:
+    name: Dependencies (cargo-deny)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-deny@0.20.2
+      - run: make deny
+
+  dylint:
+    name: Architecture lints (dylint)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # protoc with the well-known types (google/protobuf/*.proto), as in gears-rust.
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: protoc@3.34.1
+      - run: rustup show active-toolchain || rustup toolchain install
+      - uses: Swatinem/rust-cache@v2
+      - name: Cache cargo-gears
+        id: cargo-gears
+        uses: actions/cache@v4
+        with:
+          path: ~/.cargo-gears
+          key: cargo-gears-${{ env.CARGO_GEARS_VERSION }}-${{ runner.os }}-${{ runner.arch }}
+      - name: Install cargo-gears
+        if: steps.cargo-gears.outputs.cache-hit != 'true'
+        run: cargo install --locked "cargo-gears@${CARGO_GEARS_VERSION}" --root ~/.cargo-gears
+      - run: echo "$HOME/.cargo-gears/bin" >> "$GITHUB_PATH"
+      - run: make dylint
+
+  web:
+    name: Web app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: make web
+
+  e2e:
+    name: End-to-end
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # protoc with the well-known types (google/protobuf/*.proto), as in gears-rust.
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: protoc@3.34.1
+      - run: rustup show active-toolchain || rustup toolchain install
+      - uses: Swatinem/rust-cache@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: make e2e
+      - name: Receipts through oagw (stand-in for OpenAI)
+        run: make e2e-oagw
+      - name: Server logs
+        if: failure()
+        run: grep -h -E 'access_log|juggle_|WARN|ERROR' /tmp/server-*.log | sed -E 's/http_request\{[^}]*\}//' | tail -n 400 || true
+
+  deploy:
+    name: Deploy files (Helm, image)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/setup-helm@v4
+      - run: make helm-lint
+      - uses: docker/setup-buildx-action@v3
+      - name: Build the image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: deploy/Dockerfile
+          push: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  secrets:
+    name: Secret scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

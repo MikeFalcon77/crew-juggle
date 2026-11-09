@@ -1,0 +1,201 @@
+.sp-overlay.sp-overlay-full {
+  padding: 0;
+  background: #111;
+  z-index: 120;
+}
+.sp-modal.sp-modal-full {
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0;
+  border-radius: 0;
+  background: #151519;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.sp-modal-full .sp-modal-head {
+  flex: none;
+  padding: max(14px, env(safe-area-inset-top)) 20px 12px;
+  background: #151519;
+  border: 0;
+  color: white;
+}
+.sp-modal-full .sp-modal-head h2 {
+  color: white;
+  font-size: 18px;
+}
+.sp-modal-full .sp-icon-button {
+  color: white;
+  background: #ffffff1a;
+}
+.sp-camera-view {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.sp-camera-view video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.sp-camera-guide {
+  position: absolute;
+  inset: 90px 18% 180px;
+  border: 1px solid #ffffff75;
+  border-radius: 15px;
+  pointer-events: none;
+}
+.sp-camera-top {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  right: 20px;
+  text-align: center;
+}
+.sp-camera-top button,
+.sp-camera-native,
+.sp-camera-done {
+  border: 1px solid #ffffff50;
+  border-radius: 24px;
+  padding: 10px 18px;
+  color: white;
+  background: #24242bd9;
+  font: inherit;
+  cursor: pointer;
+}
+.sp-camera-top button.active,
+.sp-camera-done {
+  background: #7564c7;
+}
+.sp-camera-top p {
+  background: #141419b3;
+  border-radius: 10px;
+  padding: 8px 12px;
+  color: #eee;
+  font-size: 13px;
+  margin: 12px auto;
+  max-width: 350px;
+  text-shadow: 0 1px 3px #000;
+}
+.sp-camera-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 20px max(20px, env(safe-area-inset-bottom));
+  background: linear-gradient(transparent, #141419 45%);
+  text-align: center;
+}
+.sp-camera-bottom > p {
+  max-width: 480px;
+  margin: 10px auto;
+  font-size: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #272731ed;
+}
+.sp-camera-bottom [role='alert'] {
+  background: #6c3434;
+}
+.sp-camera-native {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin: 8px auto;
+}
+.sp-camera-done {
+  display: block;
+  margin: 10px auto;
+}
+.sp-camera-controls {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  align-items: center;
+  gap: 16px;
+  max-width: 550px;
+  margin: 12px auto 0;
+}
+.sp-camera-controls > span {
+  font-size: 12px;
+  color: #d3d0df;
+  text-align: left;
+  max-width: 120px;
+}
+.sp-camera-shutter {
+  width: 76px;
+  height: 76px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: transparent;
+  color: white;
+  padding: 5px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.sp-camera-shutter > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 50%;
+}
+.sp-camera-view button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.sp-camera-gallery {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  color: white;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  padding: 12px;
+  cursor: pointer;
+}
+.sp-camera-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0;
+}
+.sp-camera-thumbnails > div {
+  position: relative;
+}
+.sp-camera-thumbnails img {
+  width: 48px;
+  height: 62px;
+  object-fit: cover;
+  border-radius: 7px;
+}
+.sp-camera-thumbnails button {
+  position: absolute;
+  right: -5px;
+  top: -6px;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  color: #333;
+}
+.sp-camera-view button:focus-visible {
+  outline: 3px solid #b8aaff;
+  outline-offset: 4px;
+}
+@media (min-width: 700px) {
+  .sp-camera-guide {
+    inset-inline: 35%;
+  }
+}

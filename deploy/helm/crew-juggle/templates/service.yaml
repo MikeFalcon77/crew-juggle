@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "crew-juggle.name" . }}
+  labels: {{- include "crew-juggle.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/component: app
+  ports:
+    - name: http
+      port: {{ .Values.service.port }}
+      targetPort: http

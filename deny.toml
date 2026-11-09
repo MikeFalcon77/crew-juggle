@@ -1,0 +1,60 @@
+# cargo-deny policy (`make deny`): advisories, licenses, banned crates, sources.
+
+[advisories]
+db-path = ".cargo/advisory-db"
+db-urls = ["https://github.com/RustSec/advisory-db"]
+unmaintained = "workspace"
+yanked = "warn"
+# Every ignored advisory needs a comment saying why it does not apply.
+ignore = [
+  # rsa 0.9 (Marvin timing side channel): reaches us only through
+  # web-push-native -> jwt-simple -> superboring. Push signatures use ES256
+  # (P-256); no RSA key is ever created or used. No fixed rsa release exists.
+  "RUSTSEC-2023-0071",
+  # crypto-bigint 0.5 (timing variability): reaches us through
+  # web-push-native -> elliptic-curve 0.13 for VAPID ES256 signatures and the
+  # RFC 8291 key agreement. The fix is in crypto-bigint 0.7, which
+  # elliptic-curve 0.13 cannot use. Signing runs on the server's own schedule
+  # (reminders), so no caller can time it. Remove when web-push-native moves
+  # to elliptic-curve 0.14, or when push signing moves to the toolkit-security
+  # P-256 provider (see docs/good-first-issues.md).
+  "RUSTSEC-2026-0387",
+  # libsqlite3-sys < 0.39 bundles a vulnerable SQLite: compiled in through the
+  # `sqlite` feature of toolkit-db (oagw, types-registry), but never opened:
+  # crew-juggle stores everything in PostgreSQL, and oagw and types-registry
+  # run without a database here. sqlx 0.9 pins libsqlite3-sys below 0.39.
+  # Remove when toolkit-db moves to an sqlx that allows libsqlite3-sys 0.39.
+  "RUSTSEC-2026-0459",
+]
+
+[licenses]
+allow = [
+  "MIT",
+  "MIT-0",
+  "Apache-2.0",
+  "Apache-2.0 WITH LLVM-exception",
+  "BSD-2-Clause",
+  "BSD-3-Clause",
+  "BSL-1.0",
+  "ISC",
+  "Unicode-3.0",
+  "CDLA-Permissive-2.0",
+  "MPL-2.0",
+  "Zlib",
+  "CC0-1.0",
+]
+confidence-threshold = 0.8
+
+[licenses.private]
+ignore = false
+
+[bans]
+multiple-versions = "warn"
+wildcards = "allow"
+highlight = "all"
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+allow-git = []

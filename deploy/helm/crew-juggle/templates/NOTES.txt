@@ -1,0 +1,13 @@
+crew-juggle is starting.
+
+{{- if .Values.ingress.enabled }}
+Open https://{{ .Values.ingress.host }}
+{{- else }}
+Try it locally:
+  kubectl port-forward svc/{{ include "crew-juggle.name" . }} 8080:{{ .Values.service.port }}
+  open http://localhost:8080
+{{- end }}
+{{- if .Values.demo }}
+
+Demo mode: pick a character to sign in. Demo data resets when the pod restarts.
+{{- end }}

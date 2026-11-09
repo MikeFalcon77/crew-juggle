@@ -1,0 +1,38 @@
+[package]
+name = "juggle-crews-authn-plugin"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+description = "Sign-in plugin for authn-resolver: Firebase ID tokens or demo characters, mapped to crews"
+
+[dependencies]
+juggle-crews.workspace = true
+juggle-crews-sdk.workspace = true
+toolkit.workspace = true
+toolkit-macros.workspace = true
+toolkit-security.workspace = true
+toolkit-http.workspace = true
+toolkit-gts.workspace = true
+toolkit-canonical-errors.workspace = true
+authn-resolver-sdk.workspace = true
+types-registry.workspace = true
+types-registry-sdk.workspace = true
+anyhow.workspace = true
+async-trait.workspace = true
+inventory.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+uuid.workspace = true
+axum.workspace = true
+http.workspace = true
+utoipa.workspace = true
+jsonwebtoken.workspace = true
+thiserror.workspace = true
+aws-lc-rs.workspace = true
+
+[dev-dependencies]
+rsa = "=0.9.10"
+chrono.workspace = true

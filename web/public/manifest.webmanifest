@@ -1,0 +1,37 @@
+{
+  "name": "crew-juggle",
+  "short_name": "crew-juggle",
+  "description": "Shared routines and shopping for your crew.",
+  "lang": "en",
+  "start_url": "/today",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f6f7fc",
+  "theme_color": "#f6f7fc",
+  "icons": [
+    {
+      "src": "/icons/crew-juggle-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/crew-juggle-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/crew-juggle-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/crew-juggle-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

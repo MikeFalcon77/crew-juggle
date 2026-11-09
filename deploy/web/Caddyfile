@@ -1,0 +1,29 @@
+# The web image: serves the built app and passes API calls to juggle-server.
+# The same file runs everywhere:
+#   docker compose     SITE_ADDRESS=:8080, API_UPSTREAM=app:8080
+#   single host        SITE_ADDRESS=your.domain (Caddy gets the certificate)
+#   Kubernetes         SITE_ADDRESS=:8080, API_UPSTREAM=127.0.0.1:8081 (same pod)
+{
+	admin off
+}
+
+{$SITE_ADDRESS::8080} {
+	encode zstd gzip
+
+	# The server: the gears' REST APIs, the API docs and the probes.
+	@api path /juggle-crews/* /juggle-routines/* /juggle-shopping/* /docs /docs/* /openapi.json /healthz /readyz /health
+	handle @api {
+		reverse_proxy {$API_UPSTREAM:app:8080}
+	}
+
+	# The app: files from the build, index.html for every client-side page.
+	handle {
+		root * /srv
+		@hashed path /assets/*
+		header @hashed Cache-Control "public, max-age=31536000, immutable"
+		@other not path /assets/*
+		header @other Cache-Control "no-cache"
+		try_files {path} /index.html
+		file_server
+	}
+}

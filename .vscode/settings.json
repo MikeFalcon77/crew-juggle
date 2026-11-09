@@ -1,0 +1,9 @@
+{
+  "prettier.requireConfig": true,
+  "[javascript][javascriptreact][typescript][typescriptreact][css][html][json][jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  }
+}

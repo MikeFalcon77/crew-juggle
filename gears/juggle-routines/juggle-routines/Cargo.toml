@@ -1,0 +1,52 @@
+[package]
+name = "juggle-routines"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish = false
+
+[features]
+# PostgreSQL tests in tests/ (testcontainers); run them with `make test-integration`.
+integration = []
+
+[dependencies]
+# Only for start order (`deps = [juggle_crews]`); code talks to the SDK.
+juggle-crews.workspace = true
+juggle-crews-sdk.workspace = true
+authz-resolver.workspace = true
+authz-resolver-sdk.workspace = true
+juggle-routines-sdk.workspace = true
+toolkit.workspace = true
+toolkit-macros.workspace = true
+toolkit-canonical-errors.workspace = true
+utoipa.workspace = true
+toolkit-db.workspace = true
+toolkit-db-macros.workspace = true
+toolkit-security.workspace = true
+sea-orm.workspace = true
+sea-orm-migration.workspace = true
+sea-orm-macros.workspace = true
+anyhow.workspace = true
+async-trait.workspace = true
+inventory.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+tokio-util.workspace = true
+tracing.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+chrono-tz.workspace = true
+axum.workspace = true
+image = { version = "0.25", default-features = false, features = ["png"] }
+http.workspace = true
+web-push-native = "=0.5.0"
+reqwest.workspace = true
+url = "2"
+aws-lc-rs = "=1.18.2"
+base64 = "0.22"
+
+[dev-dependencies]
+juggle-testing.workspace = true
+tower = { version = "0.5", features = ["util"] }

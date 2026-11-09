@@ -1,0 +1,14 @@
+{
+  "body": {
+    "detail": "Pick one of the demo characters",
+    "error_code": "invalid_request",
+    "error_domain": "juggle-crews.v1",
+    "status": 400,
+    "title": "Pick one of the demo characters"
+  },
+  "headers": {
+    "cache-control": "no-store",
+    "content-type": "application/problem+json"
+  },
+  "status": 400
+}

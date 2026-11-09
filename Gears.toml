@@ -1,0 +1,12 @@
+# cargo-gears configuration. `make dylint` runs the architecture lints;
+# formatting and clippy run through `make fmt` and `make clippy`.
+[apps.crew-juggle.dev]
+config = "config/demo.yaml"
+gears = []
+
+[apps.crew-juggle.dev.lint]
+fmt = false
+clippy = false
+
+[apps.crew-juggle.dev.lint.dylint]
+enabled = true

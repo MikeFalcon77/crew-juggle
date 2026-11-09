@@ -1,0 +1,93 @@
+# crew-juggle as a local sandbox: pick a demo character, demo data resets on
+# every start. Never use this file for a real deployment.
+# Values written as ${VAR} or ${VAR:-default} come from the environment.
+server:
+  home_dir: /tmp/crew-juggle
+database:
+  servers:
+    primary:
+      engine: postgres
+      dsn: "${DATABASE_URL}"
+      pool:
+        max_conns: 10
+        acquire_timeout: 30s
+logging:
+  default:
+    console_level: info
+  sqlx:
+    console_level: warn
+gears:
+  api-gateway:
+    config:
+      bind_addr: "0.0.0.0:8080"
+      # Every route needs a signed-in caller unless it is declared anonymous.
+      auth_disabled: false
+      require_auth_by_default: true
+      # Interactive API docs at /docs, generated from the routes the gears declare.
+      enable_docs: true
+      cors_enabled: false
+      openapi:
+        title: crew-juggle
+        version: 0.1.0
+  types-registry:
+    config: {}
+  # Platform resolvers; they route each question to the crews plugins below.
+  authn-resolver:
+    config:
+      vendor: constructorfabric
+  authz-resolver:
+    config:
+      vendor: constructorfabric
+  # Outgoing calls: oagw proxies them and adds credentials from credstore.
+  # The integration identity lives in the platform tenant (single-tenant resolver).
+  tenant-resolver:
+    config:
+      vendor: constructorfabric
+  single-tenant-tr-plugin:
+    config:
+      vendor: constructorfabric
+  credstore:
+    database:
+      server: primary
+    config:
+      vendor: constructorfabric
+  static-credstore-plugin:
+    config:
+      vendor: constructorfabric
+  oagw:
+    config:
+      # OpenAI vision calls may take a minute and a half.
+      proxy_timeout_secs: 120
+      # Upstreams are created by the shopping gear, never over REST.
+      management_api_enabled: false
+  # The only place the OpenAI key passes through: into credstore at start-up.
+  juggle-secrets:
+    config:
+      secrets:
+        - key: openai-api-key
+          value: "${OPENAI_API_KEY:-}"
+  juggle-crews:
+    database:
+      server: primary
+    config:
+      demo: true
+      demo_timezone: "${JUGGLE_DEMO_TIMEZONE:-Europe/Berlin}"
+  juggle-crews-authn-plugin:
+    config:
+      mode: demo
+  juggle-crews-authz-plugin:
+    config: {}
+  juggle-routines:
+    database:
+      server: primary
+    config:
+      demo: true
+      vapid_private_key: "${VAPID_PRIVATE_KEY:-}"
+      vapid_public_key: "${VAPID_PUBLIC_KEY:-}"
+      vapid_subject: "${VAPID_SUBJECT:-}"
+  juggle-shopping:
+    database:
+      server: primary
+    config:
+      demo: true
+      openai_model: "${OPENAI_MODEL:-}"

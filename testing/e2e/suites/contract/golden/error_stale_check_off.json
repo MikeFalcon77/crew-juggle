@@ -1,0 +1,14 @@
+{
+  "body": {
+    "detail": "Someone changed this on another device. Refresh and try again.",
+    "error_code": "revision_conflict",
+    "error_domain": "juggle-routines.v1",
+    "status": 409,
+    "title": "Someone changed this on another device. Refresh and try again."
+  },
+  "headers": {
+    "cache-control": null,
+    "content-type": "application/problem+json"
+  },
+  "status": 409
+}

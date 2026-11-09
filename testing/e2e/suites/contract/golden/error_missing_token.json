@@ -1,0 +1,12 @@
+{
+  "body": {
+    "detail": "Authentication required",
+    "status": 401,
+    "title": "Unauthenticated"
+  },
+  "headers": {
+    "cache-control": null,
+    "content-type": "application/problem+json"
+  },
+  "status": 401
+}

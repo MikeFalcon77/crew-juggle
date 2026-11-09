@@ -1,0 +1,14 @@
+{
+  "body": {
+    "detail": "You are already in a crew",
+    "error_code": "conflict",
+    "error_domain": "juggle-crews.v1",
+    "status": 409,
+    "title": "You are already in a crew"
+  },
+  "headers": {
+    "cache-control": "no-store",
+    "content-type": "application/problem+json"
+  },
+  "status": 409
+}

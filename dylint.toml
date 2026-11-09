@@ -1,0 +1,10 @@
+# Configuration for the cargo-gears architecture lints (`make dylint`).
+# See https://github.com/constructorfabric/cargo-gears for documentation.
+
+[cargo-gears-lints]
+
+# DE0708: paths where direct sha2/sha1/md5 imports are allowed.
+hasher_allowed_paths = []
+
+# DE1101: tests live in `*_tests.rs` files next to the code they test.
+max_inline_test_lines = 0

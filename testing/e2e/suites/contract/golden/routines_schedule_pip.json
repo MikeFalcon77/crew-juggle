@@ -1,0 +1,297 @@
+{
+  "body": {
+    "appearances": {
+      "dishes": {
+        "mood": "grumpy",
+        "revision": 1
+      },
+      "kitchen": {
+        "mood": "neutral",
+        "revision": 1
+      },
+      "laundry-hang": {
+        "mood": "neutral",
+        "revision": 1
+      },
+      "laundry-start": {
+        "mood": "neutral",
+        "revision": 1
+      },
+      "litter": {
+        "mood": "grumpy",
+        "revision": 1
+      },
+      "mochi-breakfast": {
+        "mood": "happy",
+        "revision": 1
+      },
+      "mochi-dinner": {
+        "mood": "happy",
+        "revision": 1
+      },
+      "plants": {
+        "mood": "happy",
+        "revision": 1
+      },
+      "supervise": {
+        "mood": "happy",
+        "revision": 1
+      },
+      "trash": {
+        "mood": "neutral",
+        "revision": 1
+      }
+    },
+    "avatars": {
+      "m-025724787b": {
+        "has_photo": true,
+        "revision": 1
+      },
+      "m-dbc4bf1849": {
+        "has_photo": true,
+        "revision": 1
+      },
+      "mochi": {
+        "has_photo": true,
+        "revision": 1
+      }
+    },
+    "people": [
+      {
+        "account": "demo-pip",
+        "created_date": "<day-3>",
+        "id": "m-025724787b",
+        "name": "Pip",
+        "revision": 1,
+        "tone": "blue"
+      },
+      {
+        "account": "demo-zed",
+        "created_date": "<day-3>",
+        "id": "m-dbc4bf1849",
+        "name": "Zed",
+        "revision": 1,
+        "tone": "lilac"
+      },
+      {
+        "account": null,
+        "created_date": "<day-3>",
+        "id": "mochi",
+        "name": "Mochi",
+        "revision": 1,
+        "tone": "peach"
+      }
+    ],
+    "scheduled_times": {
+      "2026-11-09/08:00": "<timestamp>",
+      "2026-11-09/09:00": "<timestamp>",
+      "2026-11-09/10:00": "<timestamp>",
+      "2026-11-09/11:00": "<timestamp>",
+      "2026-11-09/19:00": "<timestamp>",
+      "2026-11-09/19:30": "<timestamp>",
+      "2026-11-09/20:00": "<timestamp>",
+      "2026-11-09/21:00": "<timestamp>"
+    },
+    "timezone": "Europe/Berlin",
+    "today": "<day+0>",
+    "versions": [
+      {
+        "effective_from": "<day-3>",
+        "routine": {
+          "assignee": "Zed",
+          "days": [],
+          "enabled": true,
+          "end_date": null,
+          "group": "Kitchen",
+          "id": "dishes",
+          "name": "Do the dishes",
+          "note": "Robot parts are not dishes. Take them off the drying rack.",
+          "person_id": "m-dbc4bf1849",
+          "prerequisite": null,
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "09:00"
+        }
+      },
+      {
+        "effective_from": "<day-3>",
+        "routine": {
+          "assignee": "Pip",
+          "days": [],
+          "enabled": true,
+          "end_date": null,
+          "group": "Kitchen",
+          "id": "kitchen",
+          "name": "Wipe the kitchen",
+          "note": "",
+          "person_id": "m-025724787b",
+          "prerequisite": null,
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "21:00"
+        }
+      },
+      {
+        "effective_from": "<day-3>",
+        "routine": {
+          "assignee": "Zed",
+          "days": [
+            7
+          ],
+          "enabled": true,
+          "end_date": null,
+          "group": "Laundry",
+          "id": "laundry-hang",
+          "name": "Hang the laundry",
+          "note": "",
+          "person_id": "m-dbc4bf1849",
+          "prerequisite": "laundry-start",
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "11:00"
+        }
+      },
+      {
+        "effective_from": "<day-3>",
+        "routine": {
+          "assignee": "Zed",
+          "days": [
+            7
+          ],
+          "enabled": true,
+          "end_date": null,
+          "group": "Laundry",
+          "id": "laundry-start",
+          "name": "Start the laundry",
+          "note": "40°, no lab coats with the towels.",
+          "person_id": "m-dbc4bf1849",
+          "prerequisite": null,
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "11:00"
+        }
+      },
+      {
+        "effective_from": "<day-3>",
+        "routine": {
+          "assignee": "Zed",
+          "days": [
+            1,
+            3,
+            5
+          ],
+          "enabled": true,
+          "end_date": null,
+          "group": "Mochi",
+          "id": "litter",
+          "name": "Clean the litter box",
+          "note": "",
+          "person_id": "m-dbc4bf1849",
+          "prerequisite": null,
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "19:00"
+        }
+      },
+      {
+        "effective_from": "<day-3>",
+        "routine": {
+          "assignee": "Pip",
+          "days": [],
+          "enabled": true,
+          "end_date": null,
+          "group": "Mochi",
+          "id": "mochi-breakfast",
+          "name": "Breakfast for Mochi",
+          "note": "Half a pouch. She will tell you it was nothing.",
+          "person_id": "m-025724787b",
+          "prerequisite": null,
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "08:00"
+        }
+      },
+      {
+        "effective_from": "<day-3>",
+        "routine": {
+          "assignee": "Zed",
+          "days": [],
+          "enabled": true,
+          "end_date": null,
+          "group": "Mochi",
+          "id": "mochi-dinner",
+          "name": "Dinner for Mochi",
+          "note": "",
+          "person_id": "m-dbc4bf1849",
+          "prerequisite": null,
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "20:00"
+        }
+      },
+      {
+        "effective_from": "<day-3>",
+        "routine": {
+          "assignee": "Pip",
+          "days": [
+            6
+          ],
+          "enabled": true,
+          "end_date": null,
+          "group": "Flat",
+          "id": "plants",
+          "name": "Water the plants",
+          "note": "The cactus too, a little.",
+          "person_id": "m-025724787b",
+          "prerequisite": null,
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "10:00"
+        }
+      },
+      {
+        "effective_from": "<day-3>",
+        "routine": {
+          "assignee": "Mochi",
+          "days": [],
+          "enabled": true,
+          "end_date": null,
+          "group": "Mochi",
+          "id": "supervise",
+          "name": "Supervise kitchen cleaning 😼",
+          "note": "From the top of the fridge, as usual.",
+          "person_id": "mochi",
+          "prerequisite": null,
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "21:00"
+        }
+      },
+      {
+        "effective_from": "<day-3>",
+        "routine": {
+          "assignee": "Pip",
+          "days": [
+            2
+          ],
+          "enabled": true,
+          "end_date": null,
+          "group": "Flat",
+          "id": "trash",
+          "name": "Take out the trash",
+          "note": "Paper on the left, plastic on the right.",
+          "person_id": "m-025724787b",
+          "prerequisite": null,
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "19:30"
+        }
+      }
+    ]
+  },
+  "headers": {
+    "cache-control": null,
+    "content-type": "application/json"
+  },
+  "status": 200
+}

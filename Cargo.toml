@@ -1,0 +1,89 @@
+[workspace]
+members = [
+    "apps/juggle-server",
+    "gears/juggle-crews/juggle-crews",
+    "gears/juggle-crews/juggle-crews-sdk",
+    "gears/juggle-crews/plugins/juggle-crews-authn-plugin",
+    "gears/juggle-crews/plugins/juggle-crews-authz-plugin",
+    "gears/juggle-routines/juggle-routines",
+    "gears/juggle-routines/juggle-routines-sdk",
+    "gears/juggle-shopping/juggle-shopping",
+    "gears/juggle-secrets/juggle-secrets",
+    "libs/juggle-testing",
+]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.97"
+license = "Apache-2.0"
+repository = "https://github.com/MikeFalcon77/crew-juggle"
+
+[workspace.dependencies]
+# This workspace's gears.
+juggle-crews = { path = "gears/juggle-crews/juggle-crews" }
+juggle-crews-sdk = { path = "gears/juggle-crews/juggle-crews-sdk" }
+juggle-crews-authn-plugin = { path = "gears/juggle-crews/plugins/juggle-crews-authn-plugin" }
+juggle-crews-authz-plugin = { path = "gears/juggle-crews/plugins/juggle-crews-authz-plugin" }
+juggle-routines = { path = "gears/juggle-routines/juggle-routines" }
+juggle-routines-sdk = { path = "gears/juggle-routines/juggle-routines-sdk" }
+juggle-shopping = { path = "gears/juggle-shopping/juggle-shopping" }
+juggle-secrets = { path = "gears/juggle-secrets/juggle-secrets" }
+juggle-testing = { path = "libs/juggle-testing" }
+
+# Constructor Gears.
+toolkit = { package = "cf-gears-toolkit", version = "=0.12.0" }
+toolkit-db = { package = "cf-gears-toolkit-db", version = "=0.17.2", features = ["pg"] }
+toolkit-db-macros = { package = "cf-gears-toolkit-db-macros", version = "=0.7.0" }
+toolkit-security = { package = "cf-gears-toolkit-security", version = "=0.12.0" }
+toolkit-http = { package = "cf-gears-toolkit-http", version = "=0.8.0" }
+toolkit-gts = { package = "cf-gears-toolkit-gts", version = "=0.1.7" }
+toolkit-macros = { package = "cf-gears-toolkit-macros", version = "=0.7.0" }
+toolkit-canonical-errors = { package = "cf-gears-toolkit-canonical-errors", version = "=0.10.0" }
+authz-resolver = { package = "cf-gears-authz-resolver", version = "=0.3.2" }
+authz-resolver-sdk = { package = "cf-gears-authz-resolver-sdk", version = "=0.6.2" }
+api-gateway = { package = "cf-gears-api-gateway", version = "=0.7.0" }
+authn-resolver = { package = "cf-gears-authn-resolver", version = "=0.2.40" }
+authn-resolver-sdk = { package = "cf-gears-authn-resolver-sdk", version = "=0.3.40" }
+types-registry = { package = "cf-gears-types-registry", version = "=0.5.2" }
+oagw = { package = "cf-gears-oagw", version = "=0.6.2" }
+oagw-sdk = { package = "cf-gears-oagw-sdk", version = "=0.5.16" }
+credstore = { package = "cf-gears-credstore", version = "=0.6.2" }
+credstore-sdk = { package = "cf-gears-credstore-sdk", version = "=0.2.20" }
+static-credstore-plugin = { package = "cf-gears-static-credstore-plugin", version = "=0.2.18" }
+tenant-resolver = { package = "cf-gears-tenant-resolver", version = "=0.1.44" }
+single-tenant-tr-plugin = { package = "cf-gears-single-tenant-tr-plugin", version = "=0.1.43" }
+types-registry-sdk = { package = "cf-gears-types-registry-sdk", version = "=0.4.2" }
+sea-orm = { version = "=2.0.2", default-features = false, features = ["macros", "with-json"] }
+sea-orm-migration = { version = "=2.0.2", default-features = false }
+sea-orm-macros = "=2.0.2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+async-trait = "0.1"
+thiserror = "2"
+inventory = "0.3"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time", "net", "fs", "process", "io-util"] }
+tokio-util = "0.7"
+tracing = "0.1"
+uuid = { version = "1", features = ["v4", "v5", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+chrono-tz = "0.10"
+axum = { version = "0.8", features = ["multipart"] }
+http = "1"
+utoipa = { version = "5", features = ["chrono", "uuid"] }
+aws-lc-rs = "=1.18.2"
+reqwest = { version = "0.13", default-features = false, features = ["rustls"] }
+jsonwebtoken = { version = "10.3", default-features = false, features = ["aws_lc_rs", "use_pem"] }
+
+[workspace.metadata.dylint]
+# Architecture lints for `make dylint`. Keep the tag equal to CARGO_GEARS_VERSION in crew-juggle.mk.
+libraries = [{ git = "https://github.com/constructorfabric/cargo-gears", tag = "cargo-gears-v0.0.10", pattern = "crates/cargo-gears-lints" }]
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[profile.release]
+strip = true
+debug = 0

@@ -1,0 +1,18 @@
+[package]
+name = "juggle-crews-sdk"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+description = "Crew membership contract shared by crew-juggle gears"
+
+[dependencies]
+async-trait.workspace = true
+thiserror.workspace = true
+uuid.workspace = true
+toolkit-security.workspace = true
+toolkit-gts.workspace = true
+authz-resolver-sdk.workspace = true
+
+[dev-dependencies]
+tokio.workspace = true

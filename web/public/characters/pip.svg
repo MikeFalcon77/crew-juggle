@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Pip">
+  <rect width="64" height="64" rx="32" fill="#cfe9ff" />
+  <path d="M14 64c1-13 8-20 18-20s17 7 18 20z" fill="#3a86ff" />
+  <rect
+    x="38"
+    y="44"
+    width="13"
+    height="16"
+    rx="2"
+    fill="#ffffff"
+    stroke="#264653"
+    stroke-width="1.5"
+  />
+  <path d="M41 49h7M41 53h7M41 57h4" stroke="#3a86ff" stroke-width="1.6" stroke-linecap="round" />
+  <circle cx="32" cy="29" r="14" fill="#ffd9c2" />
+  <path d="M18 27c0-9 6-14 14-14s14 5 14 13c-5-4-13-5-28 1z" fill="#6b4226" />
+  <circle cx="26.5" cy="30" r="4.6" fill="#ffffff" stroke="#264653" stroke-width="1.8" />
+  <circle cx="37.5" cy="30" r="4.6" fill="#ffffff" stroke="#264653" stroke-width="1.8" />
+  <path d="M31.1 30h1.8" stroke="#264653" stroke-width="1.8" />
+  <circle cx="26.5" cy="30.5" r="1.5" fill="#264653" />
+  <circle cx="37.5" cy="30.5" r="1.5" fill="#264653" />
+  <path
+    d="M28.5 37.5q3.5-1.8 7 0"
+    stroke="#264653"
+    stroke-width="1.6"
+    fill="none"
+    stroke-linecap="round"
+  />
+  <path d="M45 20q2 3 0 5" stroke="#3a86ff" stroke-width="1.6" fill="none" stroke-linecap="round" />
+</svg>

@@ -1,0 +1,60 @@
+# The same images as docker compose. Build them and load them into your cluster:
+#   make image
+#   kind load docker-image crew-juggle:local crew-juggle-web:local     # for kind
+image:
+  repository: crew-juggle
+  tag: local
+  pullPolicy: IfNotPresent
+webImage:
+  repository: crew-juggle-web
+  tag: local
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+# demo: true → character sign-in, demo data resets on restart, no Firebase.
+demo: true
+demoTimezone: Europe/Berlin
+
+# Production settings (used when demo is false).
+firebaseProjectId: ""
+allowedEmails: ""
+vapid:
+  privateKey: ""
+  publicKey: ""
+  subject: ""
+openai:
+  apiKey: ""
+  model: ""
+
+# Use your own database by setting databaseUrl. Otherwise a small Postgres runs
+# inside the release (fine for trying things out, not for keeping data safe).
+databaseUrl: ""
+postgres:
+  enabled: true
+  image: postgres:17-alpine
+  password: juggle
+  storage: 1Gi
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  className: ""
+  host: juggle.example.com
+  tls: false
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    memory: 256Mi
+webResources:
+  requests:
+    cpu: 10m
+    memory: 16Mi
+  limits:
+    memory: 64Mi

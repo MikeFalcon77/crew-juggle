@@ -1,0 +1,11 @@
+[package]
+name = "juggle-routines-sdk"
+version.workspace = true
+license.workspace = true
+edition.workspace = true
+publish = false
+
+[dependencies]
+async-trait.workspace = true
+thiserror.workspace = true
+toolkit-security.workspace = true

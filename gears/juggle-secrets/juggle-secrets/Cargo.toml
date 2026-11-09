@@ -1,0 +1,24 @@
+[package]
+name = "juggle-secrets"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+description = "Puts app-wide secrets (the OpenAI key) into credstore at start-up"
+
+[dependencies]
+juggle-crews-sdk.workspace = true
+credstore.workspace = true
+credstore-sdk.workspace = true
+toolkit.workspace = true
+toolkit-macros.workspace = true
+toolkit-security.workspace = true
+anyhow.workspace = true
+async-trait.workspace = true
+inventory.workspace = true
+serde.workspace = true
+tokio.workspace = true
+tokio-util.workspace = true
+tracing.workspace = true
+
+[dev-dependencies]

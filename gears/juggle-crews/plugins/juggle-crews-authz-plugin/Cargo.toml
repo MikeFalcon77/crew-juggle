@@ -1,0 +1,31 @@
+[package]
+name = "juggle-crews-authz-plugin"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+description = "Policy plugin for authz-resolver: crew members (and the internal worker) may access their crew's data"
+
+[dependencies]
+juggle-crews.workspace = true
+juggle-crews-sdk.workspace = true
+toolkit.workspace = true
+toolkit-macros.workspace = true
+toolkit-security.workspace = true
+toolkit-gts.workspace = true
+toolkit-canonical-errors.workspace = true
+authz-resolver-sdk.workspace = true
+oagw-sdk.workspace = true
+credstore-sdk.workspace = true
+types-registry.workspace = true
+types-registry-sdk.workspace = true
+anyhow.workspace = true
+async-trait.workspace = true
+inventory.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+uuid.workspace = true
+
+[dev-dependencies]
+tokio.workspace = true

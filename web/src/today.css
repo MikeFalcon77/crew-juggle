@@ -1,0 +1,161 @@
+.today-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 22px;
+}
+.today-block {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid #e0e3ef;
+  border-radius: 24px;
+  background: #fff;
+}
+.today-block > header {
+  margin-bottom: 18px;
+}
+.today-block h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+}
+.today-block h2 > span {
+  font-size: 12px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: #eef0fb;
+}
+.today-block > header p,
+.today-empty {
+  color: #626d85;
+  font-size: 13px;
+  margin-top: 6px;
+}
+.today-attention {
+  border-top: 5px solid #d9aa7d;
+}
+.today-good {
+  border-top: 5px solid #80baa5;
+}
+.today-neutral {
+  border-top: 5px solid #a999db;
+}
+.today-next {
+  border-top: 5px solid #8baade;
+}
+.today-card {
+  padding: 18px 0;
+  border-top: 1px solid #e8eaf2;
+  min-width: 0;
+}
+.today-card h3 {
+  font-size: 16px;
+  margin: 12px 0 6px;
+  overflow-wrap: anywhere;
+}
+.today-card > p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #56617b;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.today-card-person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.today-card-person .person-avatar {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+.today-card-person small {
+  display: block;
+  color: #68738c;
+  font-size: 11px;
+}
+.today-quick-action {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+.today-detail-link {
+  margin-top: 12px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+.today-people,
+.today-track-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.today-people {
+  margin: 22px 0;
+}
+.today-people button {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 48px;
+  padding: 8px 14px;
+  border: 1px solid #dce1ed;
+  background: #fff;
+  border-radius: 18px;
+  color: #46516d;
+}
+.today-people button.active {
+  background: #eeecff;
+  border-color: #8274cc;
+}
+.today-people .person-avatar {
+  width: 34px;
+  height: 34px;
+}
+.today-source-status {
+  font-size: 12px;
+  color: #626d85;
+  line-height: 1.7;
+}
+.today-source-status p {
+  margin: 5px 0;
+}
+.today-source-status svg {
+  vertical-align: middle;
+  margin-right: 7px;
+}
+@media (max-width: 700px) {
+  .today-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .today-block {
+    padding: 18px;
+  }
+  .today-people {
+    gap: 7px;
+  }
+  .today-people button {
+    padding: 7px 10px;
+  }
+  .today-track-links {
+    margin-top: 12px;
+  }
+}
+.today-card > p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+@media (max-width: 620px) {
+  .track-tabs button {
+    font-size: 13px;
+  }
+}

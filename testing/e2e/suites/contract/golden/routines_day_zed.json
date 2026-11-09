@@ -1,0 +1,214 @@
+{
+  "body": {
+    "appearances": {
+      "dishes": {
+        "mood": "grumpy",
+        "revision": 1
+      },
+      "kitchen": {
+        "mood": "neutral",
+        "revision": 1
+      },
+      "laundry-hang": {
+        "mood": "neutral",
+        "revision": 1
+      },
+      "laundry-start": {
+        "mood": "neutral",
+        "revision": 1
+      },
+      "litter": {
+        "mood": "grumpy",
+        "revision": 1
+      },
+      "mochi-breakfast": {
+        "mood": "happy",
+        "revision": 1
+      },
+      "mochi-dinner": {
+        "mood": "happy",
+        "revision": 1
+      },
+      "plants": {
+        "mood": "happy",
+        "revision": 1
+      },
+      "supervise": {
+        "mood": "happy",
+        "revision": 1
+      },
+      "trash": {
+        "mood": "neutral",
+        "revision": 1
+      }
+    },
+    "avatars": {
+      "m-025724787b": {
+        "has_photo": true,
+        "revision": 1
+      },
+      "m-dbc4bf1849": {
+        "has_photo": true,
+        "revision": 1
+      },
+      "mochi": {
+        "has_photo": true,
+        "revision": 1
+      }
+    },
+    "date": "<day+0>",
+    "first_date": "<day-3>",
+    "items": [
+      {
+        "completed_at": "<timestamp>",
+        "completed_by": "demo-pip",
+        "id": "<day+0>/mochi-breakfast",
+        "revision": 2,
+        "routine": {
+          "assignee": "Pip",
+          "days": [],
+          "enabled": true,
+          "end_date": null,
+          "group": "Mochi",
+          "id": "mochi-breakfast",
+          "name": "Breakfast for Mochi",
+          "note": "Half a pouch. She will tell you it was nothing.",
+          "person_id": "m-025724787b",
+          "prerequisite": null,
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "08:00"
+        },
+        "status": "done"
+      },
+      {
+        "completed_at": null,
+        "completed_by": null,
+        "id": "<day+0>/dishes",
+        "revision": 1,
+        "routine": {
+          "assignee": "Zed",
+          "days": [],
+          "enabled": true,
+          "end_date": null,
+          "group": "Kitchen",
+          "id": "dishes",
+          "name": "Do the dishes",
+          "note": "Robot parts are not dishes. Take them off the drying rack.",
+          "person_id": "m-dbc4bf1849",
+          "prerequisite": null,
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "09:00"
+        },
+        "status": "pending"
+      },
+      {
+        "completed_at": null,
+        "completed_by": null,
+        "id": "<day+0>/mochi-dinner",
+        "revision": 1,
+        "routine": {
+          "assignee": "Zed",
+          "days": [],
+          "enabled": true,
+          "end_date": null,
+          "group": "Mochi",
+          "id": "mochi-dinner",
+          "name": "Dinner for Mochi",
+          "note": "",
+          "person_id": "m-dbc4bf1849",
+          "prerequisite": null,
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "20:00"
+        },
+        "status": "pending"
+      },
+      {
+        "completed_at": "<timestamp>",
+        "completed_by": "demo-pip",
+        "id": "<day+0>/kitchen",
+        "revision": 2,
+        "routine": {
+          "assignee": "Pip",
+          "days": [],
+          "enabled": true,
+          "end_date": null,
+          "group": "Kitchen",
+          "id": "kitchen",
+          "name": "Wipe the kitchen",
+          "note": "",
+          "person_id": "m-025724787b",
+          "prerequisite": null,
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "21:00"
+        },
+        "status": "done"
+      },
+      {
+        "completed_at": null,
+        "completed_by": null,
+        "id": "<day+0>/supervise",
+        "revision": 1,
+        "routine": {
+          "assignee": "Mochi",
+          "days": [],
+          "enabled": true,
+          "end_date": null,
+          "group": "Mochi",
+          "id": "supervise",
+          "name": "Supervise kitchen cleaning 😼",
+          "note": "From the top of the fridge, as usual.",
+          "person_id": "mochi",
+          "prerequisite": null,
+          "revision": 1,
+          "start_date": "<day-3>",
+          "time": "21:00"
+        },
+        "status": "pending"
+      }
+    ],
+    "people": [
+      {
+        "account": "demo-pip",
+        "created_date": "<day-3>",
+        "id": "m-025724787b",
+        "name": "Pip",
+        "revision": 1,
+        "tone": "blue"
+      },
+      {
+        "account": "demo-zed",
+        "created_date": "<day-3>",
+        "id": "m-dbc4bf1849",
+        "name": "Zed",
+        "revision": 1,
+        "tone": "lilac"
+      },
+      {
+        "account": null,
+        "created_date": "<day-3>",
+        "id": "mochi",
+        "name": "Mochi",
+        "revision": 1,
+        "tone": "peach"
+      }
+    ],
+    "scheduled_times": {
+      "08:00": "<timestamp>",
+      "09:00": "<timestamp>",
+      "20:00": "<timestamp>",
+      "21:00": "<timestamp>"
+    },
+    "server_now": "<timestamp>",
+    "timezone": "Europe/Berlin",
+    "today": "<day+0>"
+  },
+  "headers": {
+    "cache-control": null,
+    "content-type": "application/json"
+  },
+  "status": 200
+}

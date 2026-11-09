@@ -1,0 +1,31 @@
+{
+  "body": {
+    "crew": {
+      "id": "928cb5ab-8d30-5bf8-af3c-0b4b0baf2e62",
+      "invite_code": "<invite-code>",
+      "members": [
+        {
+          "display_name": "Pip",
+          "role": "owner",
+          "uid": "demo-pip"
+        },
+        {
+          "display_name": "Zed",
+          "role": "member",
+          "uid": "demo-zed"
+        }
+      ],
+      "name": "Flat 4B",
+      "role": "member",
+      "timezone": "Europe/Berlin"
+    },
+    "email": "zed@demo.crew-juggle.test",
+    "name": "Zed",
+    "uid": "demo-zed"
+  },
+  "headers": {
+    "cache-control": "no-store",
+    "content-type": "application/json"
+  },
+  "status": 200
+}

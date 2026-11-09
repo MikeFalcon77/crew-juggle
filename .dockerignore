@@ -1,0 +1,14 @@
+.git
+.local
+target
+web/node_modules
+web/dist
+web/.env.local
+.env
+.env.*
+test-results
+playwright-report
+firebase-debug.log
+testing/e2e/.venv
+.pytest_cache
+.cargo/advisory-db

@@ -1,0 +1,29 @@
+target/
+node_modules/
+web/dist/
+.env
+.env.*
+!.env.example
+web/.env.local
+.local/
+firebase-debug.log
+playwright-report/
+test-results/
+
+# Local credentials and key material
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*service-account*.json
+
+# Deployment tooling caches
+__pycache__/
+
+# Python e2e environment
+.venv/
+.pytest_cache/
+
+# cargo-deny advisory database (deny.toml db-path)
+.cargo/advisory-db/

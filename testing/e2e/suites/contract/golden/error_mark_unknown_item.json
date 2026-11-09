@@ -1,0 +1,13 @@
+{
+  "body": {
+    "detail": "Purchase not found",
+    "error_code": "not_found",
+    "status": 404,
+    "title": "Purchase not found"
+  },
+  "headers": {
+    "cache-control": "no-store",
+    "content-type": "application/problem+json"
+  },
+  "status": 404
+}

@@ -1,0 +1,11 @@
+# CI profile: every run writes target/nextest/ci/junit.xml, which the
+# nextest_run macro of gears.mk copies to $(JUNIT_DIR).
+[profile.ci]
+fail-fast = false
+
+[profile.ci.junit]
+path = "junit.xml"
+store-success-output = false
+store-failure-output = true
+# Requires nextest >= 0.9.143 (see NEXTEST_MIN_VERSION in gears.mk).
+report-skipped = "ignored"

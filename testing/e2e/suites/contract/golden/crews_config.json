@@ -1,0 +1,36 @@
+{
+  "body": {
+    "demo_users": [
+      {
+        "crew": "Flat 4B",
+        "key": "pip",
+        "name": "Pip",
+        "tagline": "Plans everything. Started this app."
+      },
+      {
+        "crew": "Flat 4B",
+        "key": "zed",
+        "name": "Zed",
+        "tagline": "Builds robots in the kitchen. Allergic to dishes."
+      },
+      {
+        "crew": "Robotics Club",
+        "key": "nova",
+        "name": "Nova",
+        "tagline": "Captain of the Robotics Club."
+      },
+      {
+        "crew": "Robotics Club",
+        "key": "ike",
+        "name": "Ike",
+        "tagline": "Solders things. Snack enthusiast."
+      }
+    ],
+    "sign_in": "demo"
+  },
+  "headers": {
+    "cache-control": "no-store",
+    "content-type": "application/json"
+  },
+  "status": 200
+}

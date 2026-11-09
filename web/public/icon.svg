@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-label="crew-juggle">
+  <rect width="192" height="192" fill="#5b4fd6" />
+  <path
+    d="M46 96C58 44 134 44 146 96"
+    fill="none"
+    stroke="#ffffff"
+    stroke-opacity=".35"
+    stroke-width="5"
+    stroke-dasharray="1 11"
+    stroke-linecap="round"
+  />
+  <g transform="translate(36 72) rotate(-14)">
+    <rect width="34" height="32" rx="7" fill="#ffffff" />
+    <rect width="34" height="11" rx="5.5" fill="#ff8a65" />
+    <path d="M8 19h6M19 19h6M8 26h6" stroke="#5b4fd6" stroke-width="3.2" stroke-linecap="round" />
+  </g>
+  <g transform="translate(79 33)">
+    <path
+      d="M2 6h6l5 18h17l4-12H11"
+      fill="none"
+      stroke="#ffd166"
+      stroke-width="5.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <circle cx="15" cy="31" r="3.8" fill="#ffd166" />
+    <circle cx="28" cy="31" r="3.8" fill="#ffd166" />
+  </g>
+  <g transform="translate(126 62) rotate(18)">
+    <path d="M14 0v26" stroke="#ffffff" stroke-width="5" stroke-linecap="round" />
+    <path d="M4 26h20l4 15H0z" fill="#7bdcb5" />
+  </g>
+  <path d="M74 138 56 110M118 138l18-28" stroke="#ffffff" stroke-width="9" stroke-linecap="round" />
+  <path d="M68 166c2-26 13-38 28-38s26 12 28 38z" fill="#ffffff" />
+  <circle cx="96" cy="106" r="15" fill="#ffd9c2" />
+  <circle cx="91" cy="104" r="2" fill="#2d2a55" />
+  <circle cx="101" cy="104" r="2" fill="#2d2a55" />
+  <path
+    d="M90 111q6 5 12 0"
+    stroke="#2d2a55"
+    stroke-width="2.4"
+    fill="none"
+    stroke-linecap="round"
+  />
+</svg>
